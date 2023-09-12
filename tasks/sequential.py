@@ -5,11 +5,11 @@ Time per epoch on CPU (Core i7): ~64s.
 Based on: https://github.com/keras-team/keras/blob/master/examples/imdb_bidirectional_lstm.py
 """
 import numpy as np
-from tensorflow.keras import Sequential
-from tensorflow.keras.callbacks import Callback
-from tensorflow.keras.datasets import imdb
-from tensorflow.keras.layers import Dense, Dropout, Embedding
-from tensorflow.keras.preprocessing import sequence
+from keras import Sequential
+from keras.callbacks import Callback
+from keras.datasets import imdb
+from keras.layers import Dense, Dropout, Embedding
+from keras_preprocessing import sequence
 
 from tcn import TCN
 

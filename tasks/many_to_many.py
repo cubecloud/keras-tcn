@@ -5,9 +5,9 @@ Time per epoch on CPU (Core i7): ~64s.
 Based on: https://github.com/keras-team/keras/blob/master/examples/imdb_bidirectional_lstm.py
 """
 import numpy as np
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.layers import RepeatVector
+from keras import Sequential
+from keras.layers import Dense
+from keras.layers import RepeatVector
 
 from tcn import TCN
 

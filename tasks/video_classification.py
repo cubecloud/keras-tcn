@@ -1,10 +1,10 @@
 import numpy as np
-import tensorflow.keras.backend as K
-from tensorflow.keras import Input, Model
-from tensorflow.keras.layers import Conv2D
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.layers import Lambda
-from tensorflow.keras.layers import MaxPool2D
+import keras.backend as K
+from keras import Input, Model
+from keras.layers import Conv2D
+from keras.layers import Dense
+from keras.layers import Lambda
+from keras.layers import MaxPool2D
 
 from tcn import TCN
 

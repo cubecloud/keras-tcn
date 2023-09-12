@@ -1,6 +1,6 @@
 import numpy as np
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense
+from keras import Sequential
+from keras.layers import Dense
 
 from tcn import TCN
 

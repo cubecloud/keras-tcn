@@ -1,6 +1,6 @@
 import numpy as np
-from tensorflow.keras.layers import Dense, Embedding
-from tensorflow.keras.models import Sequential, model_from_json
+from keras.layers import Dense, Embedding
+from keras.models import Sequential, model_from_json
 
 from tcn import TCN, tcn_full_summary
 

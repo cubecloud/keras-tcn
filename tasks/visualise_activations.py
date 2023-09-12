@@ -7,14 +7,17 @@ Based on: https://github.com/keras-team/keras/blob/master/examples/imdb_bidirect
 import os
 import shutil
 
+import tensorflow as tf
+tf.compat.v1.disable_eager_execution()
+
 import keract  # pip install keract
 import keras
 import matplotlib.pyplot as plt
 import numpy as np
-from tensorflow.keras import Sequential
-from tensorflow.keras.datasets import imdb
-from tensorflow.keras.layers import Dense, Dropout, Embedding
-from tensorflow.keras.preprocessing import sequence
+from keras import Sequential
+from keras.datasets import imdb
+from keras.layers import Dense, Dropout, Embedding
+from keras_preprocessing import sequence
 
 from tcn import TCN
 
