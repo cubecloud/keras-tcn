@@ -40,9 +40,9 @@ symbol = 'BTCUSDT'
 interval = '1h'
 power_trend = 0.056
 support_trend = 0.075
-timeframes_period = 267
-# signal_direction = 'plus'
-signal_direction = 'minus'
+timeframes_period = 276
+signal_direction = 'plus'
+# signal_direction = 'minus'
 target_steps = 1
 freq = '7m'
 
@@ -69,6 +69,7 @@ features_dict = {
     f"Ret_perc_{int(timeframes_period/2)}": ["Close", f".diff({int(timeframes_period/2)})", "Close", "div"],
     f"Ret_perc_{int(timeframes_period/4)}": ["Close", f".diff({int(timeframes_period/4)})", "Close", "div"],
     f"Ret_perc_{int(timeframes_period/8)}": ["Close", f".diff({int(timeframes_period/8)})", "Close", "div"],
+    f"Ret_perc_24": ["Close", f".diff(24)", "Close", "div"],
     f"Ret_perc_{int(timeframes_period/16)}": ["Close", f".diff({int(timeframes_period/16)})", "Close", "div"],
     # "BOP": [["Open", "High", "Low", "Close"], "-talib.BOP"],
     # f"Vwap_{timeframes_period}": ["High", "Low", "Close", "add", "add", 3.0, "div", "Volume", "mul",
@@ -215,7 +216,7 @@ test_gen = TSRollingGenerator(data=test_data_list[0],
 lookback_window = timeframes_period  # hours.
 
 # noinspection PyArgumentEqualDefault
-tcn_layer = TCN(input_shape=(lookback_window, 14),
+tcn_layer = TCN(input_shape=(lookback_window, 15),
                 nb_filters=64,
                 kernel_size=2,
                 nb_stacks=1,
@@ -311,14 +312,14 @@ lrs = LearningRateScheduler(lrcosh.scheduler,
 
 callbacks = [rlrs, chkp, es, lrs, tensorboard]
 
-# print('Train...')
-# model.fit(train_gen,
-#           validation_data=val_gen,
-#           epochs=epochs,
-#           verbose=2,
-#           callbacks=callbacks,
-#           class_weight=train_gen.classes_weights
-#           )
+print('Train...')
+model.fit(train_gen,
+          validation_data=val_gen,
+          epochs=epochs,
+          verbose=2,
+          callbacks=callbacks,
+          class_weight=train_gen.classes_weights
+          )
 
 path_filename = f"weights_{signal_direction}.h5"
 print(f'Load weights: {path_filename}')
