@@ -1,7 +1,8 @@
 from uuid import uuid4
 
 import numpy as np
-from tensorflow.keras.callbacks import Callback
+
+from keras.callbacks import Callback
 
 from tcn import compiled_tcn
 from utils import data_generator
