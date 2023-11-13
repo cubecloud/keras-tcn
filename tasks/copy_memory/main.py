@@ -43,8 +43,13 @@ def run_task():
     # http://chappers.github.io/web%20micro%20log/2017/01/26/quick-models-in-keras/
     model.summary()
 
-    model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=100,
-              callbacks=[psv], batch_size=256)
+    model.fit(x_train,
+              y_train,
+              validation_data=(x_test, y_test),
+              epochs=100,
+              callbacks=[psv],
+              batch_size=256,
+              verbose=2)
 
     test_acc = model.evaluate(x=x_test, y=y_test)[1]  # accuracy.
     with open(f'copy_memory_{str(uuid4())[0:5]}.txt', 'w') as w:
